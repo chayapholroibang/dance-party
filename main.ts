@@ -9,6 +9,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
     otherSprite.destroy(effects.disintegrate, 100)
+    block += -1
     music.setVolume(10)
     info.changeScoreBy(1)
 })
@@ -62,7 +63,6 @@ forever(function () {
 game.onUpdateInterval(500, function () {
     lane = randint(1, 4)
     if (lane == 1) {
-        block += -1
         left = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -84,7 +84,6 @@ game.onUpdateInterval(500, function () {
         left.setVelocity(0, speed)
         left.setPosition(30, 8)
     } else if (lane == 2) {
-        block += -1
         up = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -106,7 +105,6 @@ game.onUpdateInterval(500, function () {
         up.setVelocity(0, speed)
         up.setPosition(60, 8)
     } else if (lane == 3) {
-        block += -1
         down = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -128,7 +126,6 @@ game.onUpdateInterval(500, function () {
         down.setVelocity(0, speed)
         down.setPosition(100, 8)
     } else {
-        block += -1
         right = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
